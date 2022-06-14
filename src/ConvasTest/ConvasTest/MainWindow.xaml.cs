@@ -18,6 +18,25 @@ namespace ConvasTest
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    class draw
+    {
+        public static void circle(int x, int y, int width, int height, Canvas cv)
+        {
+
+            Ellipse circle = new Ellipse()
+            {
+                Width = width,
+                Height = height,
+                Stroke = Brushes.Red,
+                StrokeThickness = 6
+            };
+
+            cv.Children.Add(circle);
+
+            circle.SetValue(Canvas.LeftProperty, (double)x);
+            circle.SetValue(Canvas.TopProperty, (double)y);
+        }
+    }
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -30,44 +49,45 @@ namespace ConvasTest
             // Create a Canvas Panel control    
             //Canvas canvasPanel = new Canvas();
             // Set Canvas Panel properties    
-            MyConvas.Background = new SolidColorBrush(Colors.LightCyan);
-            // Add Child Elements to Canvas    
-            Rectangle redRectangle = new Rectangle();
-            redRectangle.Width = 200;
-            redRectangle.Height = 200;
-            redRectangle.Stroke = new SolidColorBrush(Colors.Black);
-            redRectangle.StrokeThickness = 10;
-            redRectangle.Fill = new SolidColorBrush(Colors.Red);
-            // Set Canvas position    
-            Canvas.SetLeft(redRectangle, 10);
-            Canvas.SetTop(redRectangle, 10);
-            // Add Rectangle to Canvas    
-            MyConvas.Children.Add(redRectangle);
-            // Add Child Elements to Canvas    
-            Rectangle blueRectangle = new Rectangle();
-            blueRectangle.Width = 200;
-            blueRectangle.Height = 200;
-            blueRectangle.Stroke = new SolidColorBrush(Colors.Black);
-            blueRectangle.StrokeThickness = 10;
-            blueRectangle.Fill = new SolidColorBrush(Colors.Blue);
-            // Set Canvas position    
-            Canvas.SetLeft(blueRectangle, 60);
-            Canvas.SetTop(blueRectangle, 60);
-            // Add Rectangle to Canvas    
-            MyConvas.Children.Add(blueRectangle);
-            // Add Child Elements to Canvas    
-            Rectangle greenRectangle = new Rectangle();
-            greenRectangle.Width = 200;
-            greenRectangle.Height = 200;
-            greenRectangle.Stroke = new SolidColorBrush(Colors.Black);
-            greenRectangle.StrokeThickness = 10;
-            greenRectangle.Fill = new SolidColorBrush(Colors.Green);
-            // Set Canvas position    
-            Canvas.SetLeft(greenRectangle, 110);
-            Canvas.SetTop(greenRectangle, 110);
-            // Add Rectangle to Canvas    
-            MyConvas.Children.Add(greenRectangle);
-            // Set Grid Panel as content of the Window    
+            draw.circle(10, 10, 410, 390, MyConvas);
+            //MyConvas.Background = new SolidColorBrush(Colors.LightCyan);
+            //// Add Child Elements to Canvas    
+            //Rectangle redRectangle = new Rectangle();
+            //redRectangle.Width = 200;
+            //redRectangle.Height = 200;
+            //redRectangle.Stroke = new SolidColorBrush(Colors.Black);
+            //redRectangle.StrokeThickness = 10;
+            //redRectangle.Fill = new SolidColorBrush(Colors.Red);
+            //// Set Canvas position    
+            //Canvas.SetLeft(redRectangle, 10);
+            //Canvas.SetTop(redRectangle, 10);
+            //// Add Rectangle to Canvas    
+            //MyConvas.Children.Add(redRectangle);
+            //// Add Child Elements to Canvas    
+            //Rectangle blueRectangle = new Rectangle();
+            //blueRectangle.Width = 200;
+            //blueRectangle.Height = 200;
+            //blueRectangle.Stroke = new SolidColorBrush(Colors.Black);
+            //blueRectangle.StrokeThickness = 10;
+            //blueRectangle.Fill = new SolidColorBrush(Colors.Blue);
+            //// Set Canvas position    
+            //Canvas.SetLeft(blueRectangle, 60);
+            //Canvas.SetTop(blueRectangle, 60);
+            //// Add Rectangle to Canvas    
+            //MyConvas.Children.Add(blueRectangle);
+            //// Add Child Elements to Canvas    
+            //Rectangle greenRectangle = new Rectangle();
+            //greenRectangle.Width = 200;
+            //greenRectangle.Height = 200;
+            //greenRectangle.Stroke = new SolidColorBrush(Colors.Black);
+            //greenRectangle.StrokeThickness = 10;
+            //greenRectangle.Fill = new SolidColorBrush(Colors.Green);
+            //// Set Canvas position    
+            //Canvas.SetLeft(greenRectangle, 110);
+            //Canvas.SetTop(greenRectangle, 110);
+            //// Add Rectangle to Canvas    
+            //MyConvas.Children.Add(greenRectangle);
+            //// Set Grid Panel as content of the Window    
             this.Content = MyConvas;
         }
     }
