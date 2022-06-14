@@ -41,8 +41,9 @@ namespace ConvasTest
     {
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
-            CreateDynamicCanvasPanel();
+            //CreateDynamicCanvasPanel();
         }
         private void CreateDynamicCanvasPanel()
         {
