@@ -12,35 +12,23 @@
         <TreeView  Width="300" Height="300" ItemsSource="{Binding MyModel}">
             <TreeView.ItemTemplate >
                 <HierarchicalDataTemplate >
-                    <StackPanel Orientation="Horizontal">
+                    <DockPanel >
                         <Rectangle Width="10" Height="10" Fill="Green"/>
                         <TextBlock Text="{Binding ItemName}" Width="40"/>
                         <TreeView ItemsSource="{Binding Path=MySubItem}" BorderBrush="Transparent" >
                             <TreeView.ItemTemplate >
                                 <HierarchicalDataTemplate >
-                                    <StackPanel Orientation="Vertical">
-                                        <StackPanel Orientation="Horizontal">
+                                    <DockPanel  >
+                                        <DockPanel >
                                             <Rectangle Width="10" Height="10" Fill="Orange"/>
                                             <TextBlock Text="{Binding Path=SubItemName}"/>
-                                        </StackPanel>
+                                        </DockPanel>
                                         <TextBlock Height="10"/>
-                                    </StackPanel>
+                                    </DockPanel>
                                 </HierarchicalDataTemplate>
                             </TreeView.ItemTemplate>
-                            <TreeView.ItemContainerStyle>
-                                <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource {x:Type TreeViewItem}}">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding IsVisible}" Value="False">
-                                            <Setter Property="Visibility" Value="Collapsed" />
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding IsExpanded}" Value="True">
-                                            <Setter Property="IsExpanded" Value="True" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TreeView.ItemContainerStyle>
                         </TreeView>
-                    </StackPanel>
+                    </DockPanel>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
