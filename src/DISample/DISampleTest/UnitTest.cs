@@ -10,22 +10,22 @@ namespace DISampleTest
         [TestMethod]
         public void TestMethod1()
         {
-            var x = new Injector();
-            x.Singleton("salam");
-            var temp1 = x.Get<string>();
-            x.Singleton("salamw");
-            var temp = x.Get<string>();
-            Assert.AreEqual(temp1, temp1);
+            var injector = new Injector();
+            injector.Singleton("salam");
+            var injectorStringResult1 = injector.Get<string>();
+            injector.Singleton("salamw");
+            var injectorStringResult2 = injector.Get<string>();
+            Assert.AreEqual(injectorStringResult1, injectorStringResult2);
         }
         [TestMethod]
         public void TestMethod2()
         {
-            var x = new Injector();
-            x.Transient(Injector.WriteResult);
-            var temp1 = x.Get<int>();
-            x.Transient(Injector.WriteResult);
-            var temp = x.Get<int>();
-            Assert.AreNotEqual(temp, temp1);
+            var injector = new Injector();
+            injector.Transient(Injector.WriteResult);
+            var injectorIntegerResult1 = injector.Get<int>();
+            injector.Transient(Injector.WriteResult);
+            var injectorIntegerResult2 = injector.Get<int>();
+            Assert.AreNotEqual(injectorIntegerResult2, injectorIntegerResult1);
         }
         [TestMethod]
         public void TestMethod3()

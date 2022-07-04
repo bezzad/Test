@@ -3,14 +3,14 @@
 
 using DISample;
 
-var x = new Injector();
+var injector = new Injector();
 //test string type
-x.Singleton("salam");
-Console.WriteLine(x.Get<string>());
-var t =x.Singleton("salamw");
-Console.WriteLine(x.Get<string>());
+injector.Singleton("salam");
+Console.WriteLine(injector.Get<string>());
+injector.Singleton("salamw");
+Console.WriteLine(injector.Get<string>());
 //test integer type
-x.Transient(Injector.WriteResult);
-Console.WriteLine(x.Get<int>());
-x.Transient(Injector.WriteResult);
-Console.WriteLine(x.Get<int>());
+injector.Transient(Injector.WriteResult);
+Console.WriteLine(injector.Get<int>());
+injector.Transient(Injector.WriteResult);
+Console.WriteLine(injector.Get<int>());
