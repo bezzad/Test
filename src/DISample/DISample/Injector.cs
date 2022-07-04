@@ -7,138 +7,80 @@ using System.Threading.Tasks;
 
 namespace DISample
 {
-    public class TService
-    {
-
-    }
-    public interface Iinstance
-    {
-        public string nam { get; set; }
-        public string typ { get; set; }
-        public object val { get; set; }
-    }
-    public interface Iinstance2
-    {
-        public string nam { get; set; }
-        public string typ { get; set; }
-        public object val { get; set; }
-        public Func<object, object> func { get; set; }
-    }
-    public class Instance<T> : Iinstance
-    {
-        public string nam { get; set; }
-        public string typ { get; set; }
-
-        public T val { get; set; }
-
-        object Iinstance.val
-        {
-            get { return this.val; }
-            set { this.val = (T)value; }
-        }
-
-    }
-    public class Instance2<T> : Iinstance2
-    {
-
-        public string nam { get; set; }
-        public string typ { get; set; }
-
-        public T val { get; set; }
-
-        object Iinstance2.val
-        {
-            get { return this.val; }
-            set { this.val = (T)value; }
-        }
-        public Func<T, T> func { get ; set; }
-        Func<object, object> Iinstance2.func
-        {
-            get => func;
-            set
-            {
-                this.func = func;
-            }
-        }
-    }
     public class Injector
     {
-        Container container;
-        private List<Iinstance> serviceS = new List<Iinstance>();
-        private List<Iinstance2> serviceT = new List<Iinstance2>();
+        private Dictionary<string, object> _dicS = new Dictionary<string, object>();
+        private Dictionary<string, Func<object>>  _dicT = new Dictionary<string, Func<object>>();
+        private static int s_accessNumber = 0;
         public T Get<T>()
         {
-            string typeT = typeof(T).ToString();
-            foreach (var service in serviceS)
+            string typeStr = typeof(T).ToString();
+            foreach (var service in _dicS)
             {
-                if (service.typ == typeT)
+                if (service.Key == typeStr)
                 {
-                    return (T)service.val;
+                    return (T)service.Value;
                 }
             }
-            foreach(var service in serviceT)
+            foreach(var service in _dicT)
             {
-                if (service.typ == typeT)
+                if (service.Key == typeStr)
                 {
-                    return (T)service.val;
+                    Func<T> f = (Func<T>) service.Value.Invoke();
+                    return f();
                 }
             }
-            Instance<T> instance = new Instance<T>();
-            return instance.val;
+            return default(T);
         }
         public T Singleton<T>(T value)
         {
-            string typeT = typeof(T).ToString();
-            foreach (var service in serviceS)
+            string TypeStr = typeof(T).ToString();
+            foreach (var service in _dicS)
             {
-                if (service.typ == typeT)
+                if (service.Key == TypeStr)
                 {
-                    return (T)service.val;
+                    Console.WriteLine("repeated in singleton dictionary");
+                    return default(T);
                 }
             }
-            Instance<T> instance = new Instance<T>();
-            instance.val = value;
-            instance.typ = typeT;
-            serviceS.Add(instance);
+            foreach (var service in _dicT)
+            {
+                if (service.Key == TypeStr)
+                {
+                    Console.WriteLine("repeated in transition dictionary");
+                    return default(T);
+                }
+            }
+            _dicS.Add(TypeStr, value);
             return (T)value;
         }
-        public T Transition<T>(Func<T,T> method , T value)
+        public T Transient<T>(Func<T> method )
         {
-            try
+            string TypeStr = typeof(T).ToString();
+            foreach (var service in _dicS)
             {
-                string typeT = typeof(T).ToString();
-                foreach (var service in serviceS)
+                if (service.Key == TypeStr)
                 {
-                    if (service.typ == typeT)
-                    {
-                        throw new Exception("binded in signleton prevoiusly");
-                    }
+                    Console.WriteLine("binded in singleton");
+                    return default(T);
                 }
-                Instance2<T> instance = new Instance2<T>();
-                foreach (var service in serviceT)
-                {
-                    if (service.typ == typeT)
-                    {
-                        Console.WriteLine("value will update");
-                        service.val = service.func(value);
-                        return (T)service.val;
-                    }
-                }
-                instance.func = method;
-                instance.val = method(value);
-                instance.typ = typeT;
-                serviceT.Add(instance);
-                return instance.val;
             }
-            catch (Exception ex)
+            foreach (var service in _dicT)
             {
-                Instance<T> instance = new Instance<T>();
-                return instance.val;
+                if (service.Key == TypeStr)
+                {
+                    Console.WriteLine("binded privoisly in transient, value will be updated");
+                    Func<T> f = (Func<T>)service.Value.Invoke();
+                    return f();
+                }
             }
+            _dicT[TypeStr] = new Func<object>( () => method);
+            return method();
         }
-        public static int  WriteResult(int i)
+        public static int  WriteResult()
         {
-            return i + 10;
+            s_accessNumber++;
+            return s_accessNumber;
         }
     }
 }

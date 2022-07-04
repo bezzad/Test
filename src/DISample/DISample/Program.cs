@@ -4,12 +4,13 @@
 using DISample;
 
 var x = new Injector();
+//test string type
 x.Singleton("salam");
 Console.WriteLine(x.Get<string>());
-x.Singleton("salamw");
-x.Transition(Injector.WriteResult, 4);
-Console.WriteLine(x.Get<int>());
-x.Transition(Injector.WriteResult, 6);
-Console.WriteLine(x.Get<int>());
+var t =x.Singleton("salamw");
 Console.WriteLine(x.Get<string>());
-Console.WriteLine("Hello, World!");
+//test integer type
+x.Transient(Injector.WriteResult);
+Console.WriteLine(x.Get<int>());
+x.Transient(Injector.WriteResult);
+Console.WriteLine(x.Get<int>());
