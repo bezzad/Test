@@ -71,5 +71,10 @@ namespace DISample
             s_accessNumber++;
             return s_accessNumber;
         }
+        public static Logger WriteResult2()
+        {
+            s_accessNumber++;
+            return new Logger(s_accessNumber%2, "e");
+        }
     }
 }
