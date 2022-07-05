@@ -11,70 +11,43 @@ namespace DISample
     {
         private Dictionary<string, object> _singletonDictionary = new Dictionary<string, object>();
         private Dictionary<string, Func<object>>  _transientDictionary = new Dictionary<string, Func<object>>();
-        private static int s_accessNumber = 0;
-        public T Get<T>()
+
+        public T Get<T>() where T : class
         {
-            string typeString = typeof(T).ToString();
-            object tempObject = null;
-            Func<object> tempObjectFunction;
-            if (_singletonDictionary.TryGetValue(typeString, out tempObject))
+            var typeString = typeof(T).FullName;
+            if (_singletonDictionary.TryGetValue(typeString, out var tempObject))
             {
                 return (T)tempObject;
             }
-            if (_transientDictionary.TryGetValue(typeString, out tempObjectFunction))
+            if (_transientDictionary.TryGetValue(typeString, out var tempObjectFunction))
             {
-                Func<T> t = (Func<T>)tempObjectFunction.Invoke();
-                return (T)t();
+                var t = (Func<T>)tempObjectFunction.Invoke();
+                return t();
             }
-            return default(T);
+
+            return null;
         }
-        public T Singleton<T>(T value)
+
+        public void Singleton<T>(T value) where T : class
         {
-            string typeString = typeof(T).ToString(); 
-            object tempObject = null;
-            Func<object> tempObjectFunction;
-            if (_singletonDictionary.TryGetValue(typeString, out tempObject))
-            {
-                Console.WriteLine("repeated in singleton dictionary");
-                return default(T);
-            }
-            if (_transientDictionary.TryGetValue(typeString, out tempObjectFunction))
-            {
-                Console.WriteLine("repeated in transition dictionary");
-                return default(T);
-            }
-            _singletonDictionary.Add(typeString, value);
-            return (T)value;
+            var typeName = typeof(T).FullName;
+            var buffer = Get<T>();
+            if (buffer is null)
+                _singletonDictionary[typeName] = value;
+            else
+                throw new Exception("You can't bind twice for a type.");            
         }
-        public T Transient<T>(Func<T> method )
+
+        public void Transient<T>(Func<T> method) where T : class
         {
-            string typeString = typeof(T).ToString(); 
-            object tempObject = null;
-            Func<object> tempFunctionObject;
-            if (_singletonDictionary.TryGetValue(typeString, out tempObject))
-            {
-                Console.WriteLine("binded in singleton");
-                return default(T);
-            }
-            if (_transientDictionary.TryGetValue(typeString, out tempFunctionObject))
-            {
-                Console.WriteLine("binded privoisly in transient, value will be updated");
-                Func<T> tempFunction = (Func<T>)tempFunctionObject.Invoke();
-                return tempFunction();
-                return default(T);
-            }
-            _transientDictionary[typeString] = new Func<object>( () => method);
-            return method();
+            var typeName = typeof(T).FullName;
+            var buffer = Get<T>();
+            if (buffer is null)
+                _transientDictionary[typeName] = new Func<object>(() => method);
+            else
+                throw new Exception("You can't bind twice for a type.");
         }
-        public static int  WriteResult()
-        {
-            s_accessNumber++;
-            return s_accessNumber;
-        }
-        public static Logger WriteResult2()
-        {
-            s_accessNumber++;
-            return new Logger(s_accessNumber%2, "e");
-        }
+
+        
     }
 }

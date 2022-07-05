@@ -7,34 +7,53 @@ namespace DISampleTest
     [TestClass]
     public class UnitTest1
     {
+        Injector injector;
+
+        [TestInitialize]
+        public void Initial()
+        {
+            // init per test
+            injector = new Injector();
+        }
+
         [TestMethod]
-        public void TestMethod1()
+        public void TestInjectPersonType()
         {
-            var injector = new Injector();
-            injector.Singleton(new Person("ss", 1, 2));
-            var injectorStringResult1 = injector.Get<Person>();
-            injector.Singleton(new Person("ssd", 1, 2));
-            var injectorStringResult2 = injector.Get<Person>();
-            Assert.AreEqual(injectorStringResult1, injectorStringResult2);
+            var person = new Person("ss", 1, 2);
+            injector.Singleton(person);
+            var getPerson = injector.Get<Person>();
+
+            Assert.AreEqual(person, getPerson);
         }
+
         [TestMethod]
-        public void TestMethod2()
+        public void TestInjectLoggerType()
         {
-            var injector = new Injector();
-            injector.Transient( Injector.WriteResult2);
-            var injectorIntegerResult1 = injector.Get<Logger>();
-            injector.Transient(Injector.WriteResult2);
-            var injectorIntegerResult2 = injector.Get<Logger>();
-            Assert.AreNotEqual(injectorIntegerResult2, injectorIntegerResult1);
+            var person = new Logger(1, "ss");
+            injector.Singleton(person);
+            var getPerson = injector.Get<Logger>();
+
+            Assert.AreEqual(person, getPerson);
         }
+
         [TestMethod]
-        public void TestMethod3()
+        public void TestUninjectedPersonType()
         {
-            Assert.AreNotEqual(Injector.WriteResult(), Injector.WriteResult() + 2);
+            //var person = new Person("ss", 1, 2);
+            //injector.Singleton(person);
+            var getPerson = injector.Get<Person>();
+            Assert.AreEqual(null, getPerson);
         }
-        public void TestMethod4()
+
+        [TestMethod]
+        public void TestTransiotionInjection()
         {
-            Assert.AreNotEqual(Injector.WriteResult2(), Injector.WriteResult2());
+            var getPersonMethod = ()=> new Person("ss", 1, 2);
+            var value = getPersonMethod();
+            injector.Transient(getPersonMethod);
+            var givenPerson = injector.Get<Person>();
+            Assert.AreEqual(value.Name, givenPerson.Name);
         }
+
     }
 }

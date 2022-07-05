@@ -13,10 +13,3 @@ injector.Singleton(new Person("ss", 1, 2));
 var d = injector.Get<Person>();
 injector.Singleton(new Person("ssw", 1, 2));
 var de = injector.Get<Person>();
-if (d == de)
-    Console.WriteLine("Dd");
-//test integer type
-injector.Transient(Injector.WriteResult);
-Console.WriteLine(injector.Get<int>());
-injector.Transient(Injector.WriteResult);
-Console.WriteLine(injector.Get<int>());
