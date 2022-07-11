@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCSSample", "TCSSample\TCSSample.csproj", "{AA5BE287-F577-4F79-9915-B396BF0EC5A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA5BE287-F577-4F79-9915-B396BF0EC5A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5BE287-F577-4F79-9915-B396BF0EC5A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5BE287-F577-4F79-9915-B396BF0EC5A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5BE287-F577-4F79-9915-B396BF0EC5A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49500C89-B2A3-4CF8-8B40-C3ADFDF90308}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,22 @@
+﻿<Window x:Class="ThrothlingAndDebouncing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThrothlingAndDebouncing"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel >
+            <TextBlock Width="10"/>
+            <Button x:Name="ThrothleBtn" Background="SandyBrown" BorderBrush="Transparent"  Foreground="White" Content="throtling" Height="60" Width="100" Click="ThrothleBtn_Click"/>
+            <TextBlock Width="10"/>
+            <TextBlock x:Name="Throthlext" Foreground="SandyBrown" Text="{Binding CounterValueThrotling}" Height="20"  TextAlignment="Center"  Width="100"/>
+            <TextBlock Width="10"/>
+            <Button x:Name="DebounceBtn" Background="SandyBrown" BorderBrush="Transparent" Foreground="White" Content="debouncing" Height="60" Width="100" Click="DebounceBtn_Click"/>
+            <TextBlock Width="10"/>
+            <TextBlock x:Name="Debouncetxt" Foreground="SandyBrown" Text="{Binding CounterValueDebouncing}" Height="20"   TextAlignment="Center" Width="100"/>
+            <TextBlock Width="10"/>
+        </DockPanel>
+    </Grid>
+</Window>
