@@ -22,8 +22,8 @@ namespace ThrothlingAndDebouncing
     /// </summary>
     public partial class MainWindow : Window , INotifyPropertyChanged
     {
-        private Timer _throthleTimer;
-        private Timer _debounceTimer;
+        private ThrothleTimer _throthleTimer;
+        private DebounceTimer _debounceTimer;
         private Timer _counterTimer;
         private int _counterValue = 0;
 
@@ -42,31 +42,34 @@ namespace ThrothlingAndDebouncing
         private int _counterValueDebouncing;
         public int CounterValueDebouncing
         {
-            get { return _counterValueThrotling; }
-            set { _counterValueThrotling = value; NotifyPropertyChanged(nameof(CounterValueDebouncing)); }
+            get { return _counterValueDebouncing; }
+            set { _counterValueDebouncing = value; NotifyPropertyChanged(nameof(CounterValueDebouncing)); }
         }
         public MainWindow()
         {
             DataContext = this;
             InitializeComponent();
-            _throthleTimer = new Timer(1000);
-            _debounceTimer = new Timer(1000);
-            _throthleTimer.Elapsed += _throthleTimer_Elapsed;
+            Func<int> ds = () => UpdateCounterValueThrotling();
+            Func<int> ds2 = () => UpdateCounterValueDebouncing();
+            _throthleTimer = new ThrothleTimer(1000, ds);
+            _debounceTimer = new DebounceTimer(1000, ds2);
             _counterTimer = new Timer(500);
-            _debounceTimer.Elapsed += _debounceTimer_Elapsed;
             _counterTimer.Elapsed += _counterTimer_Elapsed;
             _counterTimer.AutoReset = true;
             _counterTimer.Start();
         }
 
-        private void _debounceTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private int UpdateCounterValueThrotling()
         {
-            _debounceTimer.Stop();
+            CounterValueThrotling = _counterValue;
+            Task.Delay(300);
+            return 0;
         }
-
-        private void _throthleTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private int UpdateCounterValueDebouncing()
         {
-            _throthleTimer.Stop();
+            CounterValueDebouncing = _counterValue;
+            Task.Delay(300);
+            return 0;
         }
 
         private void _counterTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -76,25 +79,16 @@ namespace ThrothlingAndDebouncing
 
         private void ThrothleBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (!_throthleTimer.Enabled)
+            if (!_throthleTimer.IsBusy)
             {
                 _throthleTimer.Start();
-                CounterValueThrotling = _counterValue;
-                Console.WriteLine("in throtle" + _counterValue);
-                Task.Delay(300);
-                //add increased to text box
             }
         }
 
         private void DebounceBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (!_debounceTimer.Enabled)
+            if (!_debounceTimer.IsBusy)
             {
-
-                //add first
-                CounterValueDebouncing = _counterValue;
-                Console.WriteLine("in debounce" + _counterValue);
-                Task.Delay(300);
                 _debounceTimer.Start();
             }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TCSSample
 {
-    internal class MyTaskCompletionSource
+    public class MyTaskCompletionSource
     {
         public static bool IsPrime(int number)
         {
@@ -31,17 +31,18 @@ namespace TCSSample
             
             return count;
         }
-        public static Task<string> GetTaskResult(int inputInt)
+        public async static Task<string> GetTaskResult(int inputInt)
         {
             TaskCompletionSource<string> tcs = new TaskCompletionSource<string>(inputInt);
             var res = CountPrimes(inputInt);
+            await Task.Delay(100);
             if (res == 0)
                 tcs.SetResult("No Prime");
             else if (res <= 30)
                 tcs.SetResult("Tiny Primes number");
             else if (res > 30)
                 tcs.SetResult("Large Primes number");
-            return tcs.Task;
+            return tcs.Task.Result;
         }
     }
 }

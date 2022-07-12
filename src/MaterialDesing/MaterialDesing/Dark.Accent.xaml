@@ -1,0 +1,381 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    mc:Ignorable="options">
+
+    <!--  Matadata  -->
+    <system:String x:Key="Theme.Name">Dark.Accent</system:String>
+    <system:String x:Key="Theme.DisplayName">Accent (Dark)</system:String>
+    <system:String x:Key="Theme.BaseColorScheme">Dark</system:String>
+    <system:String x:Key="Theme.ColorScheme">Accent</system:String>
+    <Color x:Key="Theme.PrimaryAccentColor">#FF00A2A4</Color>
+    <SolidColorBrush x:Key="Theme.ShowcaseBrush" Color="#FF003335" options:Freeze="True" />
+    <SolidColorBrush x:Key="MaterialDesignToolForeground" Color="#FF00A4A2" />
+    <SolidColorBrush x:Key="ProgressBarForeground" Color="#FF5BC4BF" options:Freeze="True" />
+
+    <!--  Theme Base Colors  -->
+
+    <!--  ACCENT COLORS  -->
+    <Color x:Key="Colors.Highlight">#FF006E70</Color> 
+    <Color x:Key="Colors.AccentBase">#FF003335</Color>
+    <!--  80%  -->
+    <Color x:Key="Colors.Accent">#CC003335</Color>
+    <!--  60%  -->
+    <Color x:Key="Colors.Accent2">#99003335</Color>
+    <!--  40%  -->
+    <Color x:Key="Colors.Accent3">#66003335</Color>
+    <!--  20%  -->
+    <Color x:Key="Colors.Accent4">#33003335</Color>
+
+    <!-- Google Red -->
+    <Color x:Key="Colors.GoogleRed">#FFE51C22</Color>
+
+    <!--  BASE COLORS  -->
+    <Color x:Key="Colors.ThemeForeground">#FFFFFFFF</Color>
+    <Color x:Key="Colors.ThemeBackground">#FF121212</Color>
+    <Color x:Key="Colors.IdealForeground">WhiteSmoke</Color>
+    <Color x:Key="Colors.TooltipBackground">#FF656565</Color>
+    
+    <Color x:Key="Colors.Gray">#FFBEBEBE</Color>
+    <Color x:Key="Colors.Gray0">#FF808080</Color>
+    <Color x:Key="Colors.Gray1">#FF333333</Color>
+    <Color x:Key="Colors.Gray2">#FF7F7F7F</Color>
+    <Color x:Key="Colors.Gray3">#FF9D9D9D</Color>
+    <Color x:Key="Colors.Gray4">#FFA59F93</Color>
+    <Color x:Key="Colors.Gray5">#FFB9B9B9</Color>
+    <Color x:Key="Colors.Gray6">#FFCCCCCC</Color>
+    <Color x:Key="Colors.Gray7">#FFD8D8D9</Color>
+    <Color x:Key="Colors.Gray8">#FFE0E0E0</Color>
+    <Color x:Key="Colors.Gray9">#5EC9C9C9</Color>
+    <Color x:Key="Colors.Gray10">#08181818</Color>
+    <Color x:Key="Colors.Gray11">#55F5F5F5</Color>
+    <Color x:Key="Colors.Gray12">#FF282E33</Color>
+    <Color x:Key="Colors.Gray13">#FF181818</Color>
+    <Color x:Key="Colors.Gray14">#FF282828</Color>
+
+    <Color x:Key="Colors.Gray.MouseOver">#FFAAAAAA</Color>
+    <Color x:Key="Colors.Gray.SemiTransparent">#40808080</Color>
+    <Color x:Key="Colors.Flyout">#FF2B2B2B</Color>
+
+    <!--  CORE CONTROL COLORS  -->
+    <Color x:Key="Colors.ProgressIndeterminate1">#33878787</Color>
+    <Color x:Key="Colors.ProgressIndeterminate2">#33959595</Color>
+    <Color x:Key="Colors.ProgressIndeterminate3">#4C000000</Color>
+    <Color x:Key="Colors.ProgressIndeterminate4">#4C000000</Color>
+
+    <Color x:Key="Colors.MenuShadow">#FFFFFFFF</Color>
+    <Color x:Key="Colors.MenuBackground">#FF282E33</Color>
+
+    <!--  *************BRUSHES START*************  -->
+    <!--  PROJECT TEMPLATE BRUSHES  -->
+    <SolidColorBrush x:Key="Brushes.GlassBackground" Color="#CCFFFFFF" />
+    <SolidColorBrush x:Key="Brushes.GoogleRed" Color="{StaticResource Colors.GoogleRed}" options:Freeze="True" />
+
+    <!--  UNIVERSAL CONTROL BRUSHES  -->
+    <SolidColorBrush x:Key="Brushes.ThemeBackground" Color="{StaticResource Colors.ThemeBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ThemeForeground" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Text" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.IdealForeground" Color="{StaticResource Colors.IdealForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.IdealForegroundDisabled" Color="#FFADADAD" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Selected.Foreground" Color="{StaticResource Colors.IdealForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.TooltipBackground" Color="{StaticResource Colors.TooltipBackground}" options:Freeze="True" />
+    
+    <SolidColorBrush x:Key="Brushes.WindowTitle" Color="{StaticResource Theme.PrimaryAccentColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.WindowTitle.NonActive" Color="#808080" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Border.NonActive" Color="#808080" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Highlight" Color="{StaticResource Colors.Highlight}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Transparent" Color="Transparent" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SemiTransparent" Color="#55FFFFFF" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.AccentBase" Color="{StaticResource Colors.AccentBase}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Accent" Color="{StaticResource Colors.Accent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Accent2" Color="{StaticResource Colors.Accent2}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Accent3" Color="{StaticResource Colors.Accent3}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Accent4" Color="{StaticResource Colors.Accent4}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Gray" Color="{StaticResource Colors.Gray}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray0" Color="{StaticResource Colors.Gray0}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray1" Color="{StaticResource Colors.Gray1}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray2" Color="{StaticResource Colors.Gray2}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray3" Color="{StaticResource Colors.Gray3}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray4" Color="{StaticResource Colors.Gray4}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray5" Color="{StaticResource Colors.Gray5}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray6" Color="{StaticResource Colors.Gray6}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray7" Color="{StaticResource Colors.Gray7}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray8" Color="{StaticResource Colors.Gray8}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray9" Color="{StaticResource Colors.Gray9}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray10" Color="{StaticResource Colors.Gray10}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray11" Color="{StaticResource Colors.Gray11}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray12" Color="{StaticResource Colors.Gray12}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray13" Color="{StaticResource Colors.Gray13}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray14" Color="{StaticResource Colors.Gray14}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Gray.MouseOver" Color="{StaticResource Colors.Gray.MouseOver}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Gray.SemiTransparent" Color="{StaticResource Colors.Gray.SemiTransparent}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.TextBox.Border" Color="{StaticResource Colors.Gray6}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.TextBox.Border.Focus" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.TextBox.Border.MouseOver" Color="{StaticResource Colors.Gray2}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Control.Background" Color="{StaticResource Colors.ThemeBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Control.Border" Color="{StaticResource Colors.Gray6}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Control.Disabled" Color="#A5FFFFFF" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Control.Validation" Color="#FFDB000C" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Button.Border" Color="{StaticResource Colors.Gray6}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.Border.Focus" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.Border.MouseOver" Color="{StaticResource Colors.Gray6}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.Text" Color="{StaticResource Colors.Gray8}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.ComboBox.Border.MouseOver" Color="{StaticResource Colors.Gray2}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ComboBox.Border.Focus" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ComboBox.PopupBorder" Color="{StaticResource Colors.Gray4}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.CheckBox" Color="{StaticResource Colors.Gray5}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.CheckBox.MouseOver" Color="{StaticResource Colors.Gray2}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Thumb" Color="{StaticResource Colors.Gray5}" options:Freeze="True" />
+
+    <LinearGradientBrush x:Key="Brushes.Progress" StartPoint="1.002,0.5" EndPoint="0.001,0.5" options:Freeze="True">
+        <GradientStop Offset="0" Color="{StaticResource Colors.Highlight}" />
+        <GradientStop Offset="1" Color="{StaticResource Colors.Accent3}" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="Brushes.SliderValue.Disabled" Color="#FF535353" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SliderTrack.Disabled" Color="#FF383838" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SliderThumb.Disabled" Color="#FF7E7E7E" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SliderTrack.Hover" Color="#FF737373" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SliderTrack.Normal" Color="#FF6C6C6C" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Flyout.Background" Color="{StaticResource Colors.Flyout}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Flyout.Foreground" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Window.FlyoutOverlay" Opacity="0.5" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Window.Background" Color="{StaticResource Colors.ThemeBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Separator" Color="#FFC4C4C5" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Button.Flat.Background" Color="#D5D5D5" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.Flat.Foreground" Color="#222222" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.Flat.Background.MouseOver" Color="#A9A9A9" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.Flat.Background.Pressed" Color="#444444" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.Flat.Foreground.Pressed" Color="#FFFFFF" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Button.CleanWindow.Close.Background.MouseOver" Color="#EB2F2F" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.CleanWindow.Close.Foreground.MouseOver" Color="#FFFFFF" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.CleanWindow.Close.Background.Pressed" Color="#7C0000" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Button.Square.Background.MouseOver" Color="{StaticResource Colors.Gray8}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.Square.Foreground.MouseOver" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.AccentedSquare.Background.MouseOver" Color="#66000000" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Button.AccentedSquare.Foreground.MouseOver" Color="{StaticResource Colors.IdealForeground}" options:Freeze="True" />
+
+    <!--  CONTROL VALIDATION BRUSHES  -->
+    <SolidColorBrush x:Key="Brushes.Validation1" Color="#052A2E31" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Validation2" Color="#152A2E31" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Validation3" Color="#252A2E31" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Validation4" Color="#352A2E31" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Validation5" Color="#FFDC000C" options:Freeze="True" />
+    <!--  unused  -->
+    <SolidColorBrush x:Key="Brushes.ValidationSummary1" Color="#FFDC020D" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ValidationSummary2" Color="#FFCA000C" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ValidationSummary3" Color="#FFFF9298" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ValidationSummary4" Color="#FFFDC8C8" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ValidationSummary5" Color="#DDD43940" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ValidationSummaryFill1" Color="#59F7D8DB" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ValidationSummaryFill2" Color="#FFF7D8DB" options:Freeze="True" />
+    <!--  validation text foreground always white  -->
+    <SolidColorBrush x:Key="Brushes.Text.Validation" Color="White" options:Freeze="True" />
+
+    <!--  WPF default colors  -->
+    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="{StaticResource Colors.ThemeBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+
+    <!--  menu default colors  -->
+    <SolidColorBrush x:Key="Brushes.Menu.Background" Color="{StaticResource Colors.MenuBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ContextMenu.Background" Color="{StaticResource Colors.ThemeBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SubMenu.Background" Color="{StaticResource Colors.ThemeBackground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.MenuItem.Background" Color="{StaticResource Colors.ThemeBackground}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.ContextMenu.Border" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SubMenu.Border" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.MenuItem.SelectionFill" Color="#313131" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.MenuItem.SelectionStroke" Color="#313131" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.TopMenuItem.PressedFill" Color="#313131" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.TopMenuItem.PressedStroke" Color="#E0717070" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.TopMenuItem.SelectionStroke" Color="#90717070" options:Freeze="True" />
+
+    <!--  original #FF9A9A9A"  -->
+    <SolidColorBrush x:Key="Brushes.MenuItem.Foreground.Disabled" Color="#FF7E7E7E" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.MenuItem.GlyphPanel.Disabled" Color="#848589" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="{x:Static SystemColors.MenuTextBrushKey}" Color="{StaticResource Colors.ThemeForeground}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.CheckmarkFill" Color="{StaticResource Colors.Accent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.RightArrowFill" Color="{StaticResource Colors.Accent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.WindowButtonCommands.Background.MouseOver" Color="#66DCDCDC" options:Freeze="True" />
+
+    <!--  DataGrid brushes  -->
+
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.Background" Color="{StaticResource Colors.Accent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.BorderBrush" Color="{StaticResource Colors.Accent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.Background.Disabled" Color="{StaticResource Colors.Gray7}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.BorderBrush.Disabled" Color="{StaticResource Colors.Gray7}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.Text" Color="{StaticResource Colors.IdealForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.Text.Disabled" Color="{StaticResource Colors.IdealForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.Background.MouseOver" Color="{StaticResource Colors.Accent3}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.BorderBrush.MouseOver" Color="{StaticResource Colors.Accent3}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.BorderBrush.Focus" Color="{StaticResource Colors.Accent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.Background.Inactive" Color="{StaticResource Colors.Accent2}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.BorderBrush.Inactive" Color="{StaticResource Colors.Accent2}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.DataGrid.Selection.Text.Inactive" Color="{StaticResource Colors.IdealForeground}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.Badged.Background" Color="{StaticResource Colors.AccentBase}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Badged.Background.Disabled" Color="#FF666666" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Badged.Foreground" Color="{StaticResource Colors.IdealForeground}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Badged.Foreground.Disabled" Color="#99000000" options:Freeze="True" />
+
+    <!--  HamburgerMenu  -->
+
+    <SolidColorBrush x:Key="Brushes.HamburgerMenu.Pane.Background" Color="#FF444444" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.HamburgerMenu.Pane.Foreground" Color="#FFFFFFFF" options:Freeze="True" />
+
+    <!--
+        ******************************************************************
+        DEFAULT COMMON CONTROL COLORS
+        ******************************************************************
+    -->
+    <Color x:Key="Colors.SystemAccent">#FF344545</Color>
+
+    <Color x:Key="Colors.SystemAltHigh">#FF000000</Color>
+    <Color x:Key="Colors.SystemAltLow">#33000000</Color>
+    <Color x:Key="Colors.SystemAltMedium">#99000000</Color>
+    <Color x:Key="Colors.SystemAltMediumHigh">#CC000000</Color>
+    <Color x:Key="Colors.SystemAltMediumLow">#66000000</Color>
+    <Color x:Key="Colors.SystemBaseHigh">#FFFFFFFF</Color>
+    <Color x:Key="Colors.SystemBaseLow">#33FFFFFF</Color>
+    <Color x:Key="Colors.SystemBaseMedium">#99FFFFFF</Color>
+    <Color x:Key="Colors.SystemBaseMediumHigh">#CCFFFFFF</Color>
+    <Color x:Key="Colors.SystemBaseMediumLow">#66FFFFFF</Color>
+    <Color x:Key="Colors.SystemChromeAltLow">#FFF2F2F2</Color>
+    <Color x:Key="Colors.SystemChromeBlackHigh">#FF000000</Color>
+    <Color x:Key="Colors.SystemChromeBlackLow">#33000000</Color>
+    <Color x:Key="Colors.SystemChromeBlackMediumLow">#66000000</Color>
+    <Color x:Key="Colors.SystemChromeBlackMedium">#CC000000</Color>
+    <Color x:Key="Colors.SystemChromeDisabledHigh">#FF003335</Color>
+    <Color x:Key="Colors.SystemChromeDisabledLow">#FF858585</Color>
+    <Color x:Key="Colors.SystemChromeHigh">#FF767676</Color>
+    <Color x:Key="Colors.SystemChromeLow">#FF171717</Color>
+    <Color x:Key="Colors.SystemChromeMedium">#FF1F1F1F</Color>
+    <Color x:Key="Colors.SystemChromeMediumLow">#FF2B2B2B</Color>
+    <Color x:Key="Colors.SystemChromeWhite">#FFFFFFFF</Color>
+    <Color x:Key="Colors.SystemChromeGray">#FF767676</Color>
+    <Color x:Key="Colors.SystemListLow">#19FFFFFF</Color>
+    <Color x:Key="Colors.SystemListMedium">#33FFFFFF</Color>
+    <Color x:Key="Colors.SystemErrorText">#FFF000</Color>
+
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundAccent" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundAltHigh" Color="{StaticResource Colors.SystemAltHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundAltMedium" Color="{StaticResource Colors.SystemAltMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundAltMediumHigh" Color="{StaticResource Colors.SystemAltMediumHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundAltMediumLow" Color="{StaticResource Colors.SystemAltMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundBaseHigh" Color="{StaticResource Colors.SystemBaseHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundBaseLow" Color="{StaticResource Colors.SystemBaseLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundBaseMedium" Color="{StaticResource Colors.SystemBaseMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundBaseMediumHigh" Color="{StaticResource Colors.SystemBaseMediumHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundBaseMediumLow" Color="{StaticResource Colors.SystemBaseMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundChromeBlackHigh" Color="{StaticResource Colors.SystemChromeBlackHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundChromeBlackLow" Color="{StaticResource Colors.SystemChromeBlackLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundChromeBlackMedium" Color="{StaticResource Colors.SystemChromeBlackMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundChromeBlackMediumLow" Color="{StaticResource Colors.SystemChromeBlackMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundChromeMedium" Color="{StaticResource Colors.SystemChromeMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundChromeMediumLow" Color="{StaticResource Colors.SystemChromeMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundChromeWhite" Color="{StaticResource Colors.SystemChromeWhite}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundListLow" Color="{StaticResource Colors.SystemListLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlBackgroundListMedium" Color="{StaticResource Colors.SystemListMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledAccent" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledBaseHigh" Color="{StaticResource Colors.SystemBaseHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledBaseLow" Color="{StaticResource Colors.SystemBaseLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledBaseMediumLow" Color="{StaticResource Colors.SystemBaseMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledChromeDisabledHigh" Color="{StaticResource Colors.SystemChromeDisabledHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledChromeDisabledLow" Color="{StaticResource Colors.SystemChromeDisabledLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledChromeHigh" Color="{StaticResource Colors.SystemChromeHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledChromeMediumLow" Color="{StaticResource Colors.SystemChromeMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledListMedium" Color="{StaticResource Colors.SystemListMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlDisabledTransparent" Color="Transparent" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlErrorTextForeground" Color="{StaticResource Colors.SystemErrorText}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlFocusVisualPrimary" Color="{StaticResource Colors.SystemBaseHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlFocusVisualSecondary" Color="{StaticResource Colors.SystemAltMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundAccent" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundAltHigh" Color="{StaticResource Colors.SystemAltHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundAltMediumHigh" Color="{StaticResource Colors.SystemAltMediumHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundBaseHigh" Color="{StaticResource Colors.SystemBaseHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundBaseLow" Color="{StaticResource Colors.SystemBaseLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundBaseMedium" Color="{StaticResource Colors.SystemBaseMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundBaseMediumHigh" Color="{StaticResource Colors.SystemBaseMediumHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundBaseMediumLow" Color="{StaticResource Colors.SystemBaseMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundChromeBlackHigh" Color="{StaticResource Colors.SystemChromeBlackHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundChromeBlackMedium" Color="{StaticResource Colors.SystemChromeBlackMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundChromeBlackMediumLow" Color="{StaticResource Colors.SystemChromeBlackMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundChromeDisabledLow" Color="{StaticResource Colors.SystemChromeDisabledLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundChromeGray" Color="{StaticResource Colors.SystemChromeGray}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundChromeHigh" Color="{StaticResource Colors.SystemChromeHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundChromeMedium" Color="{StaticResource Colors.SystemChromeMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundChromeWhite" Color="{StaticResource Colors.SystemChromeWhite}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundListLow" Color="{StaticResource Colors.SystemListLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundListMedium" Color="{StaticResource Colors.SystemListMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlForegroundTransparent" Color="Transparent" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAccent" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltAccent" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltAltHigh" Color="{StaticResource Colors.SystemAltHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltAltMediumHigh" Color="{StaticResource Colors.SystemAltMediumHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltBaseHigh" Color="{StaticResource Colors.SystemBaseHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltBaseLow" Color="{StaticResource Colors.SystemBaseLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltBaseMedium" Color="{StaticResource Colors.SystemBaseMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltBaseMediumHigh" Color="{StaticResource Colors.SystemBaseMediumHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltBaseMediumLow" Color="{StaticResource Colors.SystemBaseMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltChromeWhite" Color="{StaticResource Colors.SystemChromeWhite}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltListAccentHigh" Opacity="0.9" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltListAccentLow" Opacity="0.6" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltListAccentMedium" Opacity="0.8" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightAltTransparent" Color="Transparent" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightBaseHigh" Color="{StaticResource Colors.SystemBaseHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightBaseLow" Color="{StaticResource Colors.SystemBaseLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightBaseMedium" Color="{StaticResource Colors.SystemBaseMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightBaseMediumHigh" Color="{StaticResource Colors.SystemBaseMediumHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightBaseMediumLow" Color="{StaticResource Colors.SystemBaseMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightChromeAltLow" Color="{StaticResource Colors.SystemChromeAltLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightChromeHigh" Color="{StaticResource Colors.SystemChromeHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightChromeWhite" Color="{StaticResource Colors.SystemChromeWhite}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightListAccentHigh" Opacity="0.9" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightListAccentLow" Opacity="0.6" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightListAccentMedium" Opacity="0.8" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightListLow" Color="{StaticResource Colors.SystemListLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightListMedium" Color="{StaticResource Colors.SystemListMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHighlightTransparent" Color="Transparent" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHyperlinkBaseHigh" Color="{StaticResource Colors.SystemBaseHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHyperlinkBaseMedium" Color="{StaticResource Colors.SystemBaseMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHyperlinkBaseMediumHigh" Color="{StaticResource Colors.SystemBaseMediumHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlHyperlinkText" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundAltHigh" Color="{StaticResource Colors.SystemAltHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundAltMedium" Color="{StaticResource Colors.SystemAltMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundBaseLow" Color="{StaticResource Colors.SystemBaseLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundBaseMedium" Color="{StaticResource Colors.SystemBaseMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundChromeLow" Color="{StaticResource Colors.SystemChromeLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundChromeMediumLow" Color="{StaticResource Colors.SystemChromeMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundListLow" Color="{StaticResource Colors.SystemListLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundMediumAltMedium" Color="{StaticResource Colors.SystemAltMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageBackgroundTransparent" Color="Transparent" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageTextBaseHigh" Color="{StaticResource Colors.SystemBaseHigh}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageTextBaseMedium" Color="{StaticResource Colors.SystemBaseMedium}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlPageTextChromeBlackMediumLow" Color="{StaticResource Colors.SystemChromeBlackMediumLow}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlRevealFocusVisual" Color="{StaticResource Colors.SystemAccent}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlTransientBorder" Opacity="0.36" Color="#000000" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.SystemControlTransparent" Color="Transparent" options:Freeze="True" />
+</ResourceDictionary>
