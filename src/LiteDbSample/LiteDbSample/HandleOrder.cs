@@ -7,85 +7,59 @@ using System.Threading.Tasks;
 
 namespace LiteDbSample
 {
-    public class HandleOrder
+    public class HandleOrder //controller
     {
-        LiteDatabase db;
+        IGenericRepository<Customer, int> customerRepository;
+        IGenericRepository<Product,int> productRepository;
+        IGenericRepository<Order,int> orderRepository;
         List<Customer> _customerList = new List<Customer>();
         List<Product> _productList = new List<Product>();
         List<Order> _orderList = new List<Order>();
-        public void CreateDB()
+        int customerId = 0;
+        int productId = 0;
+        int orderId = 0;
+        public HandleOrder()
         {
-            if (db == null)
-            {
-                //createDB
-                db = new LiteDatabase(@"C:\Temp\MyData.db");
-            }
-
+            this.customerRepository = new GenericRepository<Customer,int>("customers");
+            this.productRepository = new GenericRepository<Product,int>("products");
+            this.orderRepository = new GenericRepository<Order,int>("orders");
         }
         public void InsertNewCustomer(Customer customer)
         {
-            var col = db.GetCollection<Customer>("customers");
-            col.Insert(customer);
-            _customerList.Add(customer);
+            customerRepository.Insert(customer,customerId);
+            customerId++;
         }
         public void InsertNewProduct(Product product)
         {
-            var col = db.GetCollection<Product>("products");
-            col.Insert(product);
-            _productList.Add(product);
+            productRepository.Insert(product, productId);
+            productId++;
         }
         public void MakeOrder(Order order)
         {
-            var col = db.GetCollection<Order>("orders");
-            col.Insert(order);
-            _orderList.Add(order);
+            orderRepository.Insert(order,orderId);
+            orderId++;
         }
-        public LiteDatabase GetDB()
+        public void DeleteProduct(int id)
         {
-            return db;
+            productRepository.Delete(id);
+            
         }
-        public void DeleteProduct(string productName)
+        public void DeleteCustomer(int id)
         {
-            var col = db.GetCollection<Product>("products");
-            foreach (Product product in _productList)
-            {
-                if (productName == product.ProductName)
-                    col.Delete(product.ProductId);
-            }
+            customerRepository.Delete(id);
         }
-        public void DeleteCustomer(string customerName)
+        public Product GetProduct(int id)
         {
-            var col = db.GetCollection<Product>("customers");
-            foreach (Customer customer in _customerList)
-            {
-                if (customerName == customer.CustomerName)
-                    col.Delete(customer.CustomerId);
-            }
+            return productRepository.GetById(id);
         }
-        public Product GetProduct(string productName)
+        public Customer GetCustomer(int id)
         {
-            var col = db.GetCollection<Product>("products");
-            foreach (Product product in _productList)
-            {
-                if (productName == product.ProductName)
-                    return product;
-            }
-            return null;
-        }
-        public Customer GetCustomer(string customerName)
-        {
-            var col = db.GetCollection<Product>("customers");
-            foreach (Customer customer in _customerList)
-            {
-                if (customerName == customer.CustomerName)
-                    return customer;
-            }
-            return null;
+            return customerRepository.GetById(id);
         }
         public void PrintOrder(int orderid)
         {
-            var col = db.GetCollection<Order>("orders");
-            foreach(Order order in _orderList)
+            var orders = orderRepository.GetAll();
+            foreach(Order order in orders)
             {
                 if(order.OrderId == orderid)
                 {

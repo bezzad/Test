@@ -8,12 +8,14 @@ namespace LiteDbSample
 {
     public class Customer
     {
+        public int Key { get; set; }
         public string CustomerName { get; set; }
         public int CustomerId { get; set; }
-        public Customer(int id, string name)
+        public Customer(int id, string name, int key)
         {
             CustomerId = id;
             CustomerName = name;
+            Key = key;
         }
     }
 }
