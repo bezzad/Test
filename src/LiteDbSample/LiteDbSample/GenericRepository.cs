@@ -14,7 +14,7 @@ namespace LiteDbSample
         public GenericRepository(string collectionName)
         {
             if(_context == null)
-                _context = new LiteDatabase(@"C:\Temp\MyData.db");
+                _context = new LiteDatabase(@"D:\Temp\MyData" + collectionName+ ".db");
             table = _context.GetCollection<TEntity>(collectionName);
         }
         public GenericRepository(LiteDatabase context, string collectionName)
@@ -24,7 +24,7 @@ namespace LiteDbSample
         }
         public IEnumerable<TEntity> GetAll()
         {
-            return (IEnumerable<TEntity>)table;
+            return (IEnumerable < TEntity > )table.EntityMapper.Members.ToList();
         }
         public TEntity GetById(Tkey id)
         {
