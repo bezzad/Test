@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FodyLogSample", "FodyLogSample\FodyLogSample.csproj", "{9855C01D-D586-4FA6-81DF-86390F385089}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9855C01D-D586-4FA6-81DF-86390F385089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9855C01D-D586-4FA6-81DF-86390F385089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9855C01D-D586-4FA6-81DF-86390F385089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9855C01D-D586-4FA6-81DF-86390F385089}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0528AB88-9CC1-4313-8D9B-70D012E1623A}
+	EndGlobalSection
+EndGlobal
