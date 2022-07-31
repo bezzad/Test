@@ -20,18 +20,24 @@ namespace testINotify
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summa
-    [AddINotifyPropertyChangedInterface]
-    public partial class MainWindow : Window
+    public partial class MainWindow :  INotifyPropertyChanged
     {
-        public string texts;
+        public event PropertyChangedEventHandler PropertyChanged;
+        private string texts;
+        public string Texts
+        {
+            get { return texts; }
+            set { texts = value; }
+        }
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            texts = "salam";
+            Texts = "salam";
         }
     }
 }

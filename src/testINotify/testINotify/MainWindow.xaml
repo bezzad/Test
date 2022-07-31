@@ -8,8 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DockPanel>
+            <TextBlock Width="30"/>
             <Button Height="50" Width="200" Content="click " Click="Button_Click"></Button>
-            <TextBox Text="{Binding texts}" Height="50" Width="400"/>
+            <TextBlock Text="{Binding Texts}" TextAlignment="Center" FontSize="20" Height="50" Width="400"/>
         </DockPanel>
     </Grid>
 </Window>
