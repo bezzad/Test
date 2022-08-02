@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,11 +9,13 @@ namespace LiteDbSample
 {
     public interface IGenericRepository<TEntity , Tkey>
     {
-        IEnumerable<TEntity> GetAll();
+        IQueryable<TEntity> Includes(params Expression<Func<TEntity, object>>[] includes);
         TEntity GetById(Tkey id);
-        void Insert(TEntity obj,Tkey id);
-        void Update(TEntity obj,Tkey id);
         void Delete(Tkey id);
-        void Save();
+        void DeleteAll();
+        TEntity Add(TEntity entity);
+        TEntity Update(TEntity entity);
+        TEntity AddOrUpdate(TEntity entity);
+        void Dispose();
     }
 }

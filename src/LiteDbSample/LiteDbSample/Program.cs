@@ -28,6 +28,7 @@ namespace LiteDbSample
             te.MakeOrder(new Order(c2, lp,26,6));
             te.PrintOrder(25);
             te.PrintOrder(26);
+            te.RefreshDB();
             te.DeleteCustomer(3);
             te.DeleteCustomer(4);
             te.DeleteProduct(1);

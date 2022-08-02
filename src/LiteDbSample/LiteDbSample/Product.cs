@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LiteDbSample
 {
-    public class Product
+    public class Product : IEntity<int>
     {
-        public int Key { get; set; }
+        [PrimaryKey] public int Id { get; set; }
         public string ProductName { get; set; }
         public int ProductId { get; set; }
         public int Productprice { get; set; }
@@ -17,7 +17,7 @@ namespace LiteDbSample
             ProductName = name;
             ProductId = id;
             Productprice = price;
-            Key = key;
+            Id = key;
         }
     }
 }

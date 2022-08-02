@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace LiteDbSample
 {
-    public class Customer
+    public class Customer : IEntity<int>
     {
-        public int Key { get; set; }
+        [PrimaryKey] public int Id { get; set; }
         public string CustomerName { get; set; }
         public int CustomerId { get; set; }
         public Customer(int id, string name, int key)
         {
             CustomerId = id;
             CustomerName = name;
-            Key = key;
+            Id = key;
         }
     }
 }

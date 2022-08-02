@@ -2,49 +2,118 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LiteDbSample
 {
-    public class GenericRepository<TEntity, Tkey> : IGenericRepository<TEntity, Tkey> where TEntity : class
+    [AttributeUsage(AttributeTargets.Property)]
+    public class PrimaryKeyAttribute : Attribute
     {
-        public static LiteDatabase _context = null;
-        public ILiteCollection<TEntity> table = null;
-        public GenericRepository(string collectionName)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PrimaryKeyAttribute"/> class.
+        /// </summary>
+        public PrimaryKeyAttribute()
         {
-            if(_context == null)
-                _context = new LiteDatabase(@"D:\Temp\MyData" + collectionName+ ".db");
-            table = _context.GetCollection<TEntity>(collectionName);
         }
-        public GenericRepository(LiteDatabase context, string collectionName)
+    }
+    public interface IEntity<TKey> where TKey : struct
+    {
+        [PrimaryKey][BsonId] TKey Id { get; set; }
+    }
+    public class GenericRepository<TEntity, Tkey> : IGenericRepository<TEntity, Tkey>, IDisposable
+        where TEntity : class, IEntity<Tkey> where Tkey : struct
+    {
+        private volatile bool _disposed;
+        LiteRepository _dbContext;
+        public GenericRepository(LiteRepository dbContext)
         {
-            _context = context;
-            table = _context.GetCollection<TEntity>(collectionName);
+            _dbContext = dbContext;
         }
-        public IEnumerable<TEntity> GetAll()
+
+        public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null)
         {
-            return (IEnumerable < TEntity > )table.EntityMapper.Members.ToList();
+            if (_disposed)
+                return null;
+
+            var query = _dbContext.Query<TEntity>();
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            return query.ToList();
         }
-        public TEntity GetById(Tkey id)
+
+        public IQueryable<TEntity> All => _dbContext.Query<TEntity>().ToEnumerable().AsQueryable();
+
+        public IQueryable<TEntity> Includes(params Expression<Func<TEntity, object>>[] includes)
         {
-            return table.FindById(new BsonValue(id));
+            if (_disposed)
+                return null;
+
+            var query = _dbContext.Query<TEntity>();
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return query.ToEnumerable().AsQueryable();
         }
-        public void Insert(TEntity obj, Tkey id)
-        {
-            table.Insert(new BsonValue(id),  obj);
-        }
-        public void Update(TEntity obj, Tkey id)
-        {
-            table.Update(new BsonValue(id), obj);
-        }
+
         public void Delete(Tkey id)
         {
-            table.Delete(new BsonValue(id));
+            if (_disposed == false)
+                _dbContext?.Delete<TEntity>(new BsonValue(id));
         }
-        public void Save()
+
+        public void DeleteAll()
         {
-            //??
+            if (_disposed == false)
+                _dbContext.Database.GetCollection<TEntity>().DeleteAll();
+        }
+
+        public TEntity Add(TEntity entity)
+        {
+            // check the current entity is not exist
+            if (_disposed == false && GetById(entity.Id) == null)
+                _dbContext.Insert(entity);
+
+            return entity;
+        }
+
+        public TEntity Update(TEntity entity)
+        {
+            if (_disposed == false)
+                _dbContext.Update(entity);
+
+            return entity;
+        }
+
+        public TEntity AddOrUpdate(TEntity entity)
+        {
+            if (_disposed == false)
+                _dbContext.Upsert(entity);
+
+            return entity;
+        }
+
+        public TEntity GetById(Tkey id)
+        {
+            return _dbContext.Database.GetCollection<TEntity>().FindById(new BsonValue(id));
+        }
+
+        public void Dispose()
+        {
+            if (_disposed)
+                return;
+
+            _disposed = true;
+            _dbContext?.Dispose();
+
+            GC.SuppressFinalize(this);
         }
     }
 }

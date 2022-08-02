@@ -7,37 +7,29 @@ using System.Threading.Tasks;
 
 namespace LiteDbSample
 {
-    public class HandleOrder //controller
+    public class HandleOrder //controller 
     {
-        IGenericRepository<Customer, int> customerRepository;
+        public IGenericRepository<Customer, int> customerRepository;
         IGenericRepository<Product,int> productRepository;
         IGenericRepository<Order,int> orderRepository;
-        List<Customer> _customerList = new List<Customer>();
-        List<Product> _productList = new List<Product>();
-        List<Order> _orderList = new List<Order>();
-        int customerId = 0;
-        int productId = 0;
-        int orderId = 0;
+        UnitOfWork unitOfWork = new UnitOfWork();
         public HandleOrder()
         {
-            this.customerRepository = new GenericRepository<Customer,int>("customers");
-            this.productRepository = new GenericRepository<Product,int>("products");
-            this.orderRepository = new GenericRepository<Order,int>("orders");
+            customerRepository = unitOfWork.customerRepository;
+            productRepository = unitOfWork.productRepository;
+            orderRepository = unitOfWork.orderRepository;
         }
         public void InsertNewCustomer(Customer customer)
         {
-            customerRepository.Insert(customer,customerId);
-            customerId++;
+            customerRepository.Add(customer);
         }
         public void InsertNewProduct(Product product)
         {
-            productRepository.Insert(product, productId);
-            productId++;
+            productRepository.Add(product);
         }
         public void MakeOrder(Order order)
         {
-            orderRepository.Insert(order,orderId);
-            orderId++;
+            orderRepository.Add(order);
         }
         public void DeleteProduct(int id)
         {
@@ -58,7 +50,7 @@ namespace LiteDbSample
         }
         public void PrintOrder(int orderid)
         {
-            var orders = orderRepository.GetAll();
+            var orders = orderRepository.Includes();
             foreach(Order order in orders)
             {
                 if(order.OrderId == orderid)
@@ -70,5 +62,10 @@ namespace LiteDbSample
                 }       
             }
         }
+        public void RefreshDB()
+        {
+            unitOfWork.Refresh();
+        }
+       
     }
 }

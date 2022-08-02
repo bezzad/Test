@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LiteDbSample
 {
-    public class Order
+    public class Order : IEntity<int>
     {
-        public int Key { get; set; }
+        [PrimaryKey] public int Id { get; set; }
         public int OrderId { get; set; }
         public Customer Customer { get; set; }
         public List<Product> Product { get; set; }
@@ -17,7 +17,10 @@ namespace LiteDbSample
             Customer = customer;
             Product = products;
             OrderId = orderId;
-            Key = key;
+            Id = key;
+        }
+        public Order()
+        {
         }
     }
 }
