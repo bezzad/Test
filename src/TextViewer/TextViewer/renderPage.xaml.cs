@@ -20,7 +20,7 @@ namespace TextViewer
     /// <summary>
     /// Interaction logic for renderPage.xaml
     /// </summary>
-    public partial class renderPage : Page
+    public partial class renderPage 
     {
         private static int FormattedHeight;
         public renderPage()
